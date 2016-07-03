@@ -1,0 +1,85 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="#">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li>
+        <i class="icon-edit"></i>
+        <a href="#">Courses</a>
+    </li>
+</ul>
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header">
+            <h2><i class="halflings-icon th"></i><span class="break"></span>Tabs</h2>
+        </div>
+        <div class="box-content">
+            <ul class="nav tab-menu nav-tabs" id="myTab" ng-init="courseSelectedTab = 'MyCourse'">
+                <li ng-class="{'active':courseSelectedTab === 'Courses'}" ng-click="courseSelectedTab = 'Courses'"><a href="#">Courses Available</a></li>
+                <li ng-class="{'active':courseSelectedTab === 'MyCourse'}" ng-click="courseSelectedTab = 'MyCourse'"><a href="#">My Courses</a></li>
+            </ul>
+
+            <div id="courseTabContent" class="tab-content">
+                <div class="tab-pane" ng-class="{'active':courseSelectedTab === 'MyCourse'}" id="myCourse">
+                    <p>
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No</th>
+                                    <th>Name</th>
+                                    <th>Summary</th>
+                                    <th>Timings</th>
+                                    <th>Speaker</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="mc in course.myCourses track by $index">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{mc.name}}</td>
+                                    <td>{{mc.summary}}</td>
+                                    <td>{{mc.timings}}</td>
+                                    <td>{{mc.speaker}}</td>
+                                    <td>{{mc.startDate}}</td>
+                                    <td>{{mc.endDate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+                <div class="tab-pane" ng-class="{'active':courseSelectedTab === 'Courses'}" id="courses">
+                    <p>
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No</th>
+                                    <th>Name</th>
+                                    <th>Summary</th>
+                                    <th>Timings</th>
+                                    <th>Speaker</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="ac in course.availableCourses track by $index">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{ac.name}}</td>
+                                    <td>{{ac.summary}}</td>
+                                    <td>{{ac.timings}}</td>
+                                    <td>{{ac.speaker}}</td>
+                                    <td>{{ac.startDate}}</td>
+                                    <td>{{ac.endDate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+</div>

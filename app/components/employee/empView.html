@@ -1,0 +1,123 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="#">Home</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li>
+        <i class="icon-edit"></i>
+        <a href="#">Education</a>
+    </li>
+</ul>
+
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header">
+            <h2><i class="halflings-icon th"></i><span class="break"></span>Tabs</h2>
+        </div>
+        <div class="box-content">
+            <ul class="nav tab-menu nav-tabs" id="myTab" ng-init="selectedTab = 'PersonalInfo'">
+                <li ng-class="{'active':selectedTab === 'EducationalInfo'}" ng-click="selectedTab = 'EducationalInfo'"><a href="#">Educational Info</a></li>
+                <li ng-class="{'active':selectedTab === 'PersonalInfo'}" ng-click="selectedTab = 'PersonalInfo'"><a href="#">Personal Details</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane" ng-class="{'active':selectedTab === 'PersonalInfo'}" id="info">
+                    <p>
+                        <div class="box-content">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label" for="name">Name</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="employee.personInfo.name">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="cadre">Cadre</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="employee.personInfo.cadre">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="extension">Extension</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="employee.personInfo.extension">
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary" ng-click="saveEmployee();">Save changes</button>
+                                        <button type="reset" class="btn">Cancel</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+                <div class="tab-pane" ng-class="{'active':selectedTab === 'EducationalInfo'}" id="custom">
+                    <p>
+                        <table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No</th>
+                                    <th>Degree</th>
+                                    <th>University</th>
+                                    <th>Year</th>
+                                    <th>Percentage</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="eI in employee.educationalInfo track by $index">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{eI.degree}}</td>
+                                    <td>{{eI.university}}</td>
+                                    <td>{{eI.year}}</td>
+                                    <td>{{eI.percentage}}</td>
+                                    <td><a ng-click="viewQualificationDetails(eI)" href="javascript:void(0);">View</a> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </p>
+                    <p>
+                        <div class="box-content">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label" for="degree">Degree</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="selectedEducationInfo.degree">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="university">University</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="selectedEducationInfo.university">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="year">Year</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="selectedEducationInfo.year">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="percentage">Percentage</label>
+                                        <div class="controls">
+                                            <input type="text" ng-model="selectedEducationInfo.percentage">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary" ng-click="updateQualificationDetails();">Save changes</button>
+                                        <button type="reset" class="btn">Cancel</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/span-->
+</div>
