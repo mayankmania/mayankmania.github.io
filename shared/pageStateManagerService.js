@@ -1,6 +1,6 @@
 var pageStateManagerService = function () {
 
-    var pageState = this.pageState || intialize();
+    var pageState = {};
 
     this.setState = function (pageIdentifier, selectedPage) {
         pageState[pageIdentifier] = selectedPage;
@@ -9,8 +9,4 @@ var pageStateManagerService = function () {
     this.getState = function (pageIdentifier) {
         return pageState[pageIdentifier];
     };
-
-    var intialize = function (params) {
-        pageState = {};
-    }
 };
