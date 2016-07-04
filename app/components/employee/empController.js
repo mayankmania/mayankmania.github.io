@@ -2,7 +2,7 @@
 /// <reference path="../../app.module.js" />
 /// <reference path="../../model/employee.js" />
 
-function employeeController($scope, $filter, EmployeeService,PageStateManagerService) {
+function employeeController($scope, $filter, EmployeeService) {
   //Variable declaration
   $scope.employee = {};
   
