@@ -2,22 +2,24 @@
 /// <reference path="../../app.module.js" />
 /// <reference path="../../model/employee.js" />
 
-function employeeController($scope, $filter, EmployeeService,PageStateManagerService) {
+function employeeController($scope, $filter, EmployeeService, PageStateManagerService) {
   //Variable declaration
   $scope.employee = {};
-  
+
   $scope.selectedEducationInfo = {};
-  
-  $scope.getSelectedSection = function(selectedSection)
-  {
-    PageStateManagerService.getState(selectedSection);
+  $scope.selectedTab = "EducationalInfo";
+  $scope.getSelectedSection = function (selectedSection) {
+    if (PageStateManagerService.getState(selectedSection) == undefined) {
+      PageStateManagerService.getState(selectedSection) = "EducationalInfo";
+    }
+    $scope.selectedTab = PageStateManagerService.getState(selectedSection);
   };
-  
-  $scope.setSelectedSection = function(selectedSection,selectedValue)
-  {
-    PageStateManagerService.setState(selectedSection,selectedValue);
+
+  $scope.setSelectedSection = function (selectedSection, selectedValue) {
+    PageStateManagerService.setState(selectedSection, selectedValue);
+    $scope.selectedTab = PageStateManagerService.getState(selectedSection);
   };
-  
+
   //Initialization
   initialize();
 
