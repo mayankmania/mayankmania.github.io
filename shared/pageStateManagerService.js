@@ -1,12 +1,12 @@
 var pageStateManagerService = function () {
 
-    var pageState = {};
+    this.pageState = {};
 
     this.setState = function (pageIdentifier, selectedPage) {
-        pageState[pageIdentifier] = selectedPage;
+        this.pageState[pageIdentifier] = selectedPage;
     };
 
     this.getState = function (pageIdentifier) {
-        return pageState[pageIdentifier];
+        return this.pageState[pageIdentifier];
     };
 };
