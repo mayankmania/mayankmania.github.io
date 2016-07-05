@@ -8,7 +8,15 @@ function employeeController($scope, $filter, EmployeeService,PageStateManagerSer
   
   $scope.selectedEducationInfo = {};
   
-
+  $scope.getSelectedSection = function(selectedSection)
+  {
+    PageStateManagerService.getState(selectedSection);
+  };
+  
+  $scope.setSelectedSection = function(selectedSection,selectedValue)
+  {
+    PageStateManagerService.setState(selectedSection,selectedValue);
+  };
   
   //Initialization
   initialize();
