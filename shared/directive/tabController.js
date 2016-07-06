@@ -19,3 +19,5 @@ var navTab = function (PageStateManagerService) {
         templateUrl: 'shared/directive/nav-tab.html'
     };
 };
+
+// In directives to pass the value as a string from the element we need to pass it as '@'
