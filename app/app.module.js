@@ -1,7 +1,7 @@
 'use strict'
 
 /// <reference path="../typings/angularjs/angular.d.ts" />
-var elController = angular.module('el.controller', ['el.services', 'ngRoute','ngAnimate']);
+var elController = angular.module('el.controller', ['el.services', 'ngRoute', 'ngAnimate']);
 var elServices = angular.module('el.services', []);
 //Shared directives must go here
 var elDirectives = angular.module('el.directives', ['el.services']);
@@ -10,6 +10,8 @@ var elDirectives = angular.module('el.directives', ['el.services']);
 elController.controller('MainController', mainController);
 elController.controller('EmployeeController', employeeController);
 elController.controller('CourseController', courseController);
+elController.controller('TabNavController', tabNavController);
+elController.directive('navTab', navTab);
 
 elController.config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -31,4 +33,3 @@ elController.config(function ($routeProvider, $locationProvider) {
 elServices.service('EmployeeService', employeeService);
 elServices.service('CourseService', courseService);
 elServices.service('PageStateManagerService', pageStateManagerService);
-
