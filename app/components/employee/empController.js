@@ -5,9 +5,9 @@
 function employeeController($scope, $filter, EmployeeService, PageStateManagerService) {
   //Variable declaration
   $scope.employee = {};
- 
+
   $scope.selectedEducationInfo = {};
-  
+
   $scope.getSelectedSection = function (selectedSection) {
     if (PageStateManagerService.getState(selectedSection) == undefined) {
       PageStateManagerService.setState(selectedSection, "EducationalInfo");
@@ -30,6 +30,7 @@ function employeeController($scope, $filter, EmployeeService, PageStateManagerSe
     resetEI();
     educationInfo.isSelected = true;
     angular.copy(educationInfo, $scope.selectedEducationInfo);
+    EmployeeService.save($scope.employee);
   };
 
   $scope.updateQualificationDetails = function () {
