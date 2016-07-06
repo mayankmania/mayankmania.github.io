@@ -17,8 +17,8 @@
         </div>
         <div class="box-content">
             <ul class="nav tab-menu nav-tabs" id="myTab" ng-init="courseSelectedTab = 'MyCourse'">
-                <li ng-class="{'active':courseSelectedTab === 'Courses'}" ng-click="courseSelectedTab = 'Courses'"><a href="#">Courses Available</a></li>
-                <li ng-class="{'active':courseSelectedTab === 'MyCourse'}" ng-click="courseSelectedTab = 'MyCourse'"><a href="#">My Courses</a></li>
+                <li ng-class="{'active':selectedTab === 'Courses'}" ng-click="setSelectedSection('coursedetails','Courses')"><a href="#">Courses Available</a></li>
+                <li ng-class="{'active':selectedTab === 'MyCourse'}" ng-click="setSelectedSection('coursedetails','MyCourse')"><a href="#">My Courses</a></li>
             </ul>
 
             <div id="courseTabContent" class="tab-content">
