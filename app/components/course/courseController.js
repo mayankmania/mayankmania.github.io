@@ -3,7 +3,9 @@
 
 var courseController = function ($scope,CourseService,PageStateManagerService) {
   $scope.course = {};
+  
   angular.copy(CourseService.get(),$scope.course);
+  
   $scope.selectedTab = "MyCourse";
   
   $scope.getSelectedSection = function (selectedSection) {
