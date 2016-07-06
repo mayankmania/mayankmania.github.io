@@ -6,7 +6,7 @@
     </li>
     <li>
         <i class="icon-edit"></i>
-        <a href="#">Education - {{getSelectedSection('employeedetails')}}</a>
+        <a href="#">Education</a>
     </li>
 </ul>
 
@@ -17,11 +17,11 @@
         </div>
         <div class="box-content">
             <ul class="nav tab-menu nav-tabs" id="myTab">
-                <li ng-class="{'active':selectedTab === 'EducationalInfo'}" ng-click="setSelectedSection('employeedetails','EducationalInfo')"><a href="#">Educational Info</a></li>
-                <li ng-class="{'active':selectedTab === 'PersonalInfo'}" ng-click="setSelectedSection('employeedetails','PersonalInfo')"><a href="#">Personal Details</a></li>
+                <li ng-class="{'active':getSelectedSection('employeedetails') === 'EducationalInfo'}" ng-click="setSelectedSection('employeedetails','EducationalInfo')"><a href="#">Educational Info</a></li>
+                <li ng-class="{'active':getSelectedSection('employeedetails') === 'PersonalInfo'}" ng-click="setSelectedSection('employeedetails','PersonalInfo')"><a href="#">Personal Details</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
-                <div class="tab-pane" ng-class="{'active':selectedTab === 'PersonalInfo'}" id="info">
+                <div class="tab-pane" ng-class="{'active':getSelectedSection('employeedetails') === 'PersonalInfo'}" id="info">
                     <p>
                         <div class="box-content">
                             <form class="form-horizontal">
@@ -53,7 +53,7 @@
                         </div>
                     </p>
                 </div>
-                <div class="tab-pane" ng-class="{'active':selectedTab === 'EducationalInfo'}" id="custom">
+                <div class="tab-pane" ng-class="{'active':getSelectedSection('employeedetails') === 'EducationalInfo'}" id="custom">
                     <p>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>

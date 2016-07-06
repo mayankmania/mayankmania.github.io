@@ -7,18 +7,16 @@ function employeeController($scope, $filter, EmployeeService, PageStateManagerSe
   $scope.employee = {};
  
   $scope.selectedEducationInfo = {};
-  $scope.selectedTab = "EducationalInfo";
   
   $scope.getSelectedSection = function (selectedSection) {
     if (PageStateManagerService.getState(selectedSection) == undefined) {
       PageStateManagerService.setState(selectedSection, "EducationalInfo");
     }
-    $scope.selectedTab = PageStateManagerService.getState(selectedSection);
+    return PageStateManagerService.getState(selectedSection);
   };
 
   $scope.setSelectedSection = function (selectedSection, selectedValue) {
     PageStateManagerService.setState(selectedSection, selectedValue);
-    $scope.selectedTab = PageStateManagerService.getState(selectedSection);
   };
 
   //Initialization
