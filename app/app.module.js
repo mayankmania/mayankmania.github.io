@@ -7,10 +7,14 @@ var elServices = angular.module('el.services', []);
 var elDirectives = angular.module('el.directives', ['el.services']);
 //Register all the controller in el.controller module
 
+//Register all the services in el.services module
+elServices.service('EmployeeService', employeeService);
+elServices.service('CourseService', courseService);
+elServices.service('PageStateManagerService', pageStateManagerService);
+
 elController.controller('MainController', mainController);
 elController.controller('EmployeeController', employeeController);
 elController.controller('CourseController', courseController);
-elController.controller('TabNavController', tabNavController);
 elController.directive('navTab', navTab);
 
 elController.config(function ($routeProvider, $locationProvider) {
@@ -29,7 +33,3 @@ elController.config(function ($routeProvider, $locationProvider) {
 });
 
 
-//Register all the services in el.services module
-elServices.service('EmployeeService', employeeService);
-elServices.service('CourseService', courseService);
-elServices.service('PageStateManagerService', pageStateManagerService);

@@ -1,33 +1,21 @@
-var tabNavController = function ($scope, PageStateManagerService) {
-
-    $scope.value="test";
-
-    $scope.getSelectedSection = function (selectedSection) {
-        if (PageStateManagerService.getState(selectedSection) == undefined) {
-            PageStateManagerService.setState(selectedSection, "EducationalInfo");
-        }
-        console.log('Invoked');
-        return PageStateManagerService.getState(selectedSection);
-    };
-
-    $scope.setSelectedSection = function (selectedSection, selectedValue) {
-        PageStateManagerService.setState(selectedSection, selectedValue);
-        console.log('Invoked');
-    };
-
-    $scope.test = function () {
-        alert('Invoked');
-    };
-};
-
-var navTab = function () {
+var navTab = function (PageStateManagerService) {
     return {
         restrict: 'E',
         scope: {
             value: '@value',
-            section: '@section',
-            test : '&'
+            section: '@section'
         },
+        link: function (scope, iElement, iAttrs) {
+            scope.getSelectedSection = function () {
+                return PageStateManagerService.getState(scope.section);
+            };
+
+            scope.setSelectedSection = function () {
+                console.log(scope.value);    
+                PageStateManagerService.setState(scope.section, scope.value);
+            };
+        },
+        replace: true,
         templateUrl: 'shared/directive/nav-tab.html'
     };
 };

@@ -17,8 +17,10 @@
         </div>
         <div class="box-content">
             <ul class="nav tab-menu nav-tabs" id="myTab">
-                <li ng-class="{'active':getSelectedSection('employeedetails') === 'EducationalInfo'}" ng-click="setSelectedSection('employeedetails','EducationalInfo')"><a href="#">Educational Info</a></li>
-                <li ng-class="{'active':getSelectedSection('employeedetails') === 'PersonalInfo'}" ng-click="setSelectedSection('employeedetails','PersonalInfo')"><a href="#">Personal Details</a></li>
+                <!--<li ng-class="{'active':getSelectedSection('employeedetails') === 'EducationalInfo'}" ng-click="setSelectedSection('employeedetails','EducationalInfo')"><a href="#">Educational Info</a></li>
+                <li ng-class="{'active':getSelectedSection('employeedetails') === 'PersonalInfo'}" ng-click="setSelectedSection('employeedetails','PersonalInfo')"><a href="#">Personal Details</a></li>-->
+                <nav-tab value="EducationalInfo" section="employeedetails"></nav-tab>
+                <nav-tab value="PersonalInfo" section="employeedetails"></nav-tab>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane" ng-class="{'active':getSelectedSection('employeedetails') === 'PersonalInfo'}" id="info">
@@ -48,11 +50,6 @@
                                     <div class="form-actions">
                                         <button type="submit" class="btn btn-primary" ng-click="saveEmployee();">Save changes</button>
                                         <button type="reset" class="btn">Cancel</button>
-                                    </div>
-
-                                    <div class="form-actions" ng-controller="TabNavController">
-                                        <nav-tab value="EducationalInfo" section="employeedetails"></nav-tab>
-                                        <nav-tab value="PersonalInfo" section="employeedetails"></nav-tab>
                                     </div>
 
                                 </fieldset>
