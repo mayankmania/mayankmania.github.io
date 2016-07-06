@@ -5,7 +5,7 @@
 function employeeController($scope, $filter, EmployeeService, PageStateManagerService) {
   //Variable declaration
   $scope.employee = {};
-
+ 
   $scope.selectedEducationInfo = {};
   $scope.selectedTab = "EducationalInfo";
   $scope.getSelectedSection = function (selectedSection) {
