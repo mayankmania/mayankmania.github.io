@@ -1,7 +1,7 @@
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../app.module.js" />
 
-var courseController = function ($scope,CourseService) {
+var courseController = function ($scope,CourseService,PageStateManagerService) {
   $scope.course = {};
   angular.copy(CourseService.get(),$scope.course);
   $scope.selectedTab = "MyCourse";
