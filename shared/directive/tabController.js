@@ -3,20 +3,45 @@ var navTab = function (PageStateManagerService) {
         restrict: 'E',
         scope: {
             value: '@value',
-            section: '@section'
+            section: '@section',
+            default: '@default'
         },
         link: function (scope, iElement, iAttrs) {
             scope.getSelectedSection = function () {
+                if (PageStateManagerService.getState(scope.section) == undefined) {
+                    PageStateManagerService.setState(scope.section, scope.default);
+                }
                 return PageStateManagerService.getState(scope.section);
             };
 
             scope.setSelectedSection = function () {
-                console.log(scope.value);    
                 PageStateManagerService.setState(scope.section, scope.value);
             };
         },
         replace: true,
         templateUrl: 'shared/directive/nav-tab.html'
+    };
+};
+
+var tabPane = function (PageStateManagerService) {
+    return {
+        restrict: 'E',
+        scope: {
+            value: '@value',
+            section: '@section',
+            default: '@default'
+        },
+        transclude: true,
+        link: function (scope, iElement, iAttrs) {
+            scope.getSelectedSection = function () {
+                if (PageStateManagerService.getState(scope.section) == undefined) {
+                    PageStateManagerService.setState(scope.section, scope.default);
+                }
+                return PageStateManagerService.getState(scope.section);
+            };
+        },
+        replace: true,
+        templateUrl: 'shared/directive/tab-pane.html'
     };
 };
 

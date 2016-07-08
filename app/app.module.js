@@ -16,6 +16,8 @@ elController.controller('MainController', mainController);
 elController.controller('EmployeeController', employeeController);
 elController.controller('CourseController', courseController);
 elController.directive('navTab', navTab);
+elController.directive('tabPane', tabPane);
+
 
 elController.config(function ($routeProvider, $locationProvider) {
     $routeProvider

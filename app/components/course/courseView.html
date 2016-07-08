@@ -17,12 +17,12 @@
         </div>
         <div class="box-content">
             <ul class="nav tab-menu nav-tabs" id="myTab">
-                <li ng-class="{'active':getSelectedSection('coursedetails') === 'Courses'}" ng-click="setSelectedSection('coursedetails','Courses')"><a href="#">Courses Available</a></li>
-                <li ng-class="{'active':getSelectedSection('coursedetails') === 'MyCourse'}" ng-click="setSelectedSection('coursedetails','MyCourse')"><a href="#">My Courses</a></li>
+                <nav-tab value="Courses" section="coursedetails" default="MyCourse"></nav-tab>
+                <nav-tab value="MyCourse" section="coursedetails" default="MyCourse"></nav-tab>
             </ul>
 
             <div id="courseTabContent" class="tab-content">
-                <div class="tab-pane" ng-class="{'active':getSelectedSection('coursedetails') === 'MyCourse'}" id="myCourse">
+                <tab-pane value="MyCourse" section="coursedetails" default="MyCourse">
                     <p>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
@@ -49,8 +49,8 @@
                             </tbody>
                         </table>
                     </p>
-                </div>
-                <div class="tab-pane" ng-class="{'active':getSelectedSection('coursedetails') === 'Courses'}" id="courses">
+                </tab-pane>
+                <tab-pane value="Courses" section="coursedetails" default="MyCourse">
                     <p>
                         <table class="table table-bordered table-striped table-condensed">
                             <thead>
@@ -77,7 +77,7 @@
                             </tbody>
                         </table>
                     </p>
-                </div>
+                </tab-pane>
             </div>
         </div>
     </div>
