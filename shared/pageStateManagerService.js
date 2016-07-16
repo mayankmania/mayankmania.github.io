@@ -1,3 +1,5 @@
+//Maintains context specific data for of views
+
 var pageStateManagerService = function () {
 
     this.pageState = {};
