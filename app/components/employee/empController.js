@@ -8,17 +8,6 @@ function employeeController($scope, $filter, EmployeeService, PageStateManagerSe
 
   $scope.selectedEducationInfo = {};
 
-  // $scope.getSelectedSection = function (selectedSection) {
-  //   if (PageStateManagerService.getState(selectedSection) == undefined) {
-  //     PageStateManagerService.setState(selectedSection, "EducationalInfo");
-  //   }
-  //   return PageStateManagerService.getState(selectedSection);
-  // };
-
-  // $scope.setSelectedSection = function (selectedSection, selectedValue) {
-  //   PageStateManagerService.setState(selectedSection, selectedValue);
-  // };
-
   //Initialization
   initialize();
 
