@@ -5,4 +5,5 @@ var mainController = function ($scope, $route, $routeParams, $location) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
+    $scope.scopeTest = 'Main Page';
 };
